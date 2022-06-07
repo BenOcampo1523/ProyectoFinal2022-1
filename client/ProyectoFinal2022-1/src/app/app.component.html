@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <table mat-table [dataSource]="dataSource" mat-sort>
+    <ng-container matColumnDef="Action"  >
+      <mat-header-cell *matHeaderCellDef > Action </mat-header-cell>
+      <mat-cell *matCellDef="let element" >
+        <button mat-menu-item (click)="sort">Edit</button>
+      </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="nombre">
+      <mat-header-cell *matHeaderCellDef>Nombre</mat-header-cell>
+      <mat-cell *matCellDef="let animal"> {{animal.nombre}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="precio">
+      <mat-header-cell *matHeaderCellDef>Vacuna</mat-header-cell>
+      <mat-cell *matCellDef="let animal"> {{animal.vacuna}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="calidad">
+      <mat-header-cell *matHeaderCellDef>Adoptado</mat-header-cell>
+      <mat-cell *matCellDef="let animal"> {{animal.adoptado}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="comentario">
+      <mat-header-cell *matHeaderCellDef>Características</mat-header-cell>
+      <mat-cell *matCellDef="let animal"> {{animal.comentario}} </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[3, 5, 10]"
+                 showFirstLastButtons
+                 aria-label="Seleccionar pagina de taqueria.">
+  </mat-paginator>
+
+  <mat-card class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>Shiba Inu</mat-card-title>
+      <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+    </mat-card-header>
+ <mat-card-content>
+  <p>
+    The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+    A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+    bred for hunting.
+  </p>
+</mat-card-content>
+<mat-card-actions>
+  <button mat-button>LIKE</button>
+  <button mat-button>SHARE</button>
+</mat-card-actions>
+</mat-card>
+</body>
+</html>
