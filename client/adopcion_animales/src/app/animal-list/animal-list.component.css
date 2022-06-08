@@ -16,13 +16,13 @@ p {
   color: white;
 }
 
-.mat-row {
+mat-row {
   color: rgb(50,50,50);
   background-color: rgb(200,200,200);
   font-family: 'Nunito', sans-serif;
 }
 
-.mat-row:nth-child(odd) {
+mat-row:nth-child(odd) {
   background-color: rgb(180,180,180);
 }
 
