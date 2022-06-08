@@ -3,5 +3,5 @@ export interface Animales {
   nombre: string;
   vacuna: boolean;
   adoptado: string;
-  caracteristicas: string;
+  caracteristicas?: string;
 }

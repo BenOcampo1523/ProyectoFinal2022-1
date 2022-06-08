@@ -1,6 +1,25 @@
+/* IMPORT FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+
+/* MAIN STYLE CODE */
+h1 {
+  padding-top: 10px;
+  text-align: center;
+  font-family: 'Nunito', sans-serif;
+  color: white;
+  text-shadow: 1px 1px 2px black;
+}
+
+p {
+  margin: 15px;
+  color: white;
+}
+
 .mat-row {
   color: rgb(50,50,50);
   background-color: rgb(200,200,200);
+  font-family: 'Nunito', sans-serif;
 }
 
 .mat-row:nth-child(odd) {
@@ -16,10 +35,19 @@ mat-table {
   box-shadow: 3px 3px 6px rgba(100, 100, 100, 0.75);
 }
 
-mat-header-row {
+mat-header-cell {
   background-color: rgb(120, 120, 120);
+  color: white;
 }
 
 button {
   width: 100%
+}
+
+mat-paginator {
+  background-color: unset;
+  background-image: linear-gradient(rgba(0,0,0,0) 40%, rgba(51,153,255,0.75) 100%);
+  border-bottom: 1px solid rgb(50, 50, 50);
+  color: white;
+  text-shadow: 1px 1px 2px black;
 }

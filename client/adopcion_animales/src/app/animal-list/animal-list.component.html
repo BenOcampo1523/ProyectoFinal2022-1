@@ -1,9 +1,13 @@
+<h1>Bienvenido al Sistema de Adopción de Animales Domésticos</h1>
+<p>Seleccione una opción para administrar los datos:</p>
+
 <mat-table [dataSource]="dataSource" mat-sort>
   <ng-container matColumnDef="Action">
     <mat-header-cell *matHeaderCellDef>Acciones</mat-header-cell>
     <mat-cell *matCellDef="let element, let animales">
-      <button class="btn btn-info" [class.selected]="animales === selectedAnimal" mat-menu-item [routerLink]="['/edit/', animales.id_animal]">Modificar</button>
+      <button class="btn btn-success" [class.selected]="animales === selectedAnimal" mat-menu-item [routerLink]="['/edit/', animales.id_animal]">Modificar</button>
       <button class="btn btn-danger" [class.selected]="animales === selectedAnimal" mat-menu-item (click)="deleteAnimal(animales.id_animal)">Eliminar</button>
+      <button class="btn btn-info" [class.selected]="animales === selectedAnimal" mat-menu-item (click)="onSelect(animales)">Detalles</button>
     </mat-cell>
   </ng-container>
 

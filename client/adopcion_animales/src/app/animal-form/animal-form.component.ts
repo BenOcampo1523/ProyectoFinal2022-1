@@ -1,7 +1,7 @@
 import { Component, EventEmitter, HostBinding, OnInit, Output } from '@angular/core';
 import { Animales } from '../animales';
 import { AnimalesService } from '../animales.service';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, Route, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-animal-form',
@@ -11,6 +11,12 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class AnimalFormComponent implements OnInit {
   @HostBinding('class') classes = 'row';
 
+  constructor(
+    private servicio: AnimalesService,
+    private router: Router,
+    private activeRoute: ActivatedRoute,
+  ) { }
+
   animal: Animales = {
     id_animal: 0,
     nombre: '',
@@ -19,13 +25,7 @@ export class AnimalFormComponent implements OnInit {
     caracteristicas: ''
   };
 
-  editFlag: boolean = false;
-
-  constructor(
-    private servicio: AnimalesService,
-    private router: Router,
-    private activeRoute: ActivatedRoute,
-  ) { }
+  edit: boolean = false;
 
   ngOnInit(): void {
     const params = this.activeRoute.snapshot.params;
@@ -35,7 +35,7 @@ export class AnimalFormComponent implements OnInit {
         res => {
           console.log(res);
           this.animal = res;
-          this.editFlag = true;
+          this.edit = true;
         },
         err => { console.error(err) }
       )
@@ -59,7 +59,8 @@ export class AnimalFormComponent implements OnInit {
   }
 
   editAnimal() {
-    this.servicio.updateAnimal(this.animal.id_animal, this.animal).subscribe(
+    const params = this.activeRoute.snapshot.params;
+    this.servicio.updateAnimal(params['id_animal'] , this.animal).subscribe(
       res => { console.log(res); },
       err => { console.error(err); }
     )

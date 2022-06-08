@@ -1,10 +1,15 @@
-.card {
+/* IMPORT FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+.mat-card {
   width: 50%;
-  min-width: 300px;
-  margin: auto;
-  margin-top: 15px;
+  margin: 5px auto;
+  border-radius: 10px;
+  box-shadow: 4px 4px 8px;
+  background-color: rgba(255,255,255,0.5);
 }
 
-.modifyWarning {
-  margin-bottom: 5px;
+.mat-card-content {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1rem;
 }

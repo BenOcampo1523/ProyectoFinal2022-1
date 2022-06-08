@@ -11,7 +11,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
 import { HttpClientModule } from '@angular/common/http';
 import {MatTableModule} from '@angular/material/table';
-import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatPaginatorIntl, MatPaginatorModule } from '@angular/material/paginator';
 
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
@@ -21,6 +21,7 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AnimalFormComponent } from './animal-form/animal-form.component';
 import { AnimalListComponent } from './animal-list/animal-list.component';
+import { CustomMatPaginatorIntl } from 'src/customCode/CustomMatPaginatorIntl';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,10 @@ import { AnimalListComponent } from './animal-list/animal-list.component';
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [{
+    provide: MatPaginatorIntl,
+    useClass: CustomMatPaginatorIntl
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,14 +1,16 @@
 import { Injectable } from "@angular/core";
-import { Animales } from "./animales";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { catchError, map, Observable, of, tap } from "rxjs";
+import { catchError, Observable, of, tap } from "rxjs";
+
+import { Animales } from "./animales";
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class AnimalesService {
-  private animalesURL = 'http://localhost:3000/api/v1/animales';
+  animalesURL = 'http://localhost:3000/api/v1/animales';
+
   constructor(private http:HttpClient) {
   }
 
@@ -38,13 +40,18 @@ export class AnimalesService {
     );
   }
 
+  updateAnimal(id:string|number, animal:Animales): Observable<Animales> {
+    return this.http.put<Animales>(`${this.animalesURL}/${id}`, animal, this.httpOptions);
+  }
 
+  /*
   updateAnimal(id:number, animal:Animales): Observable<any>{
     const url = `${this.animalesURL}/${id}`;
     return this.http.put(url, animal, this.httpOptions).pipe(
-      tap(_ => this.log(`updated hero id=${id}`)),
+      tap(_ => this.log(`updated hero id=${animal.id_animal}`)),
       catchError(this.handleError<any>('updateTaqueria')));
   }
+  */
 
 
   /*

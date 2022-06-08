@@ -2,7 +2,7 @@
   <div class="card-body">
     <form>
       <div class="form-group">
-        <span>Modificando ID {{animal.id_animal}}</span><br><br>
+        <span *ngIf="edit==true" >Modificando ID {{animal.id_animal}}<br><br></span>
         <span>Nombre del animal:</span>
         <input type="text" name="nombre" [(ngModel)]="animal.nombre" placeholder="Nombre del animal" class="form-control" autofocus>
       </div>
@@ -26,7 +26,8 @@
         <textarea name="caracteristicas" [(ngModel)]="animal.caracteristicas" placeholder="Una descripción breve del animal." rows="2" class="form-control"></textarea>
       </div>
 
-      <button class="btn btn-success btn-block" (click)="editFlag==true ? editAnimal() : guardarAnimal()">Agregar</button>
+      <button class="btn btn-success btn-block" *ngIf="edit==false" (click)="guardarAnimal()">Agregar</button>
+      <button class="btn btn-success btn-block" *ngIf="edit==true" (click)="editAnimal()">Modificar datos</button>
     </form>
   </div>
 </div>

@@ -14,6 +14,7 @@ import { MatTableDataSource } from '@angular/material/table';
   templateUrl: './animal-list.component.html',
   styleUrls: ['./animal-list.component.css']
 })
+
 export class AnimalListComponent implements OnInit {
   title = 'Sistema de Adopción de Animales Domésticos';
 
@@ -25,6 +26,8 @@ export class AnimalListComponent implements OnInit {
   @ViewChild(AnimalDetallesComponent) animal?: Animales;
 
   constructor(private animalesService:AnimalesService) {
+    delete this.animal?.caracteristicas;
+
     this.animalesService.getAnimales().subscribe(animales => {
       this.dataSource = new MatTableDataSource(animales);
       this.dataSource.paginator = this.paginator;
@@ -38,9 +41,11 @@ export class AnimalListComponent implements OnInit {
     this.selectedAnimal = animales;
   }
 
-  displayedColumns: string[] = ['nombre', 'vacuna', 'adoptado', 'caracteristicas', 'Action'];
+  displayedColumns: string[] = ['nombre', 'vacuna', 'adoptado', 'Action'];
 
   getAnimales(): void {
+    delete this.animal?.caracteristicas;
+
     this.animalesService.getAnimales().subscribe(animales => {
       this.dataSource = new MatTableDataSource(animales);
       this.dataSource.paginator = this.paginator;
@@ -49,13 +54,16 @@ export class AnimalListComponent implements OnInit {
   }
 
   deleteAnimal(id_animal: number) {
-    this.animalesService.deleteAnimal(id_animal).subscribe(
-      res => {
-        console.log(res);
-        this.getAnimales();
-      },
-      err => { console.error(err) }
-    )
+    let text = `¿Estás seguro de que quieres eliminar este animal?`;
+    if (confirm(text) == true) {
+      this.animalesService.deleteAnimal(id_animal).subscribe(
+        res => {
+          console.log(res);
+          this.getAnimales();
+        },
+        err => { console.error(err) }
+      )
+    }
   }
 
  //
