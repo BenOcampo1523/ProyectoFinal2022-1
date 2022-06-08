@@ -1,0 +1,10 @@
+.card {
+  width: 50%;
+  min-width: 300px;
+  margin: auto;
+  margin-top: 15px;
+}
+
+.modifyWarning {
+  margin-bottom: 5px;
+}

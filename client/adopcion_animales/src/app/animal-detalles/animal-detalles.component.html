@@ -1,0 +1,46 @@
+<mat-card *ngIf="animal" class="example-card">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>{{animal.nombre}}</mat-card-title>
+    <mat-card-subtitle>Adoptado por {{animal.adoptado}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p>
+      Características: {{animal.caracteristicas}}
+    </p>
+  </mat-card-content>
+</mat-card>
+<!--
+<div class="card">
+  <div class="card-body">
+    <span class="modifyWarning">Los datos no serán modificados hasta que se presione el botón "Modificar datos". {{animalEdit.id_animal}}</span>
+    <form>
+      <div class="form-group">
+        <span>Nombre del animal:</span>
+        <input type="text" name="nombre" [(ngModel)]="animalEdit.nombre" placeholder="Nombre de la mascota" class="form-control" autofocus>
+      </div>
+      <div class="form-group">
+        <span>¿Está vacunado?</span><br>
+        <div class="form-check form-check-inline">
+          <input type="radio" id="vacunado" name="vacuna" [value]="true" [(ngModel)]="animal.vacuna" (ngModelChange)="choose($event)" class="form-check-input">
+          <label for="vacunado" class="form-check-label">Vacunado</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input type="radio" id="noVacunado" name="vacuna" [value]="false" [(ngModel)]="animal.vacuna" (ngModelChange)="choose($event)" class="form-check-input">
+        <label for="vacunado" class="form-check-label">No vacunado</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <span>Adoptado por:</span>
+        <input type="text" name="adoptado" [(ngModel)]="animal.adoptado" placeholder="Persona quien lo adoptó" class="form-control">
+      </div>
+      <div class="form-group">
+        <span>Descripción y/o características:</span>
+        <textarea name="caracteristicas" [(ngModel)]="animal.caracteristicas" placeholder="Una descripción breve del animal." rows="2" class="form-control"></textarea>
+      </div>
+
+      <button class="btn btn-success btn-block" (click)="editAnimal()">Modificar datos</button>
+    </form>
+  </div>
+</div>
+-->

@@ -1,4 +1,3 @@
-const boom = require('@hapi/boom');
 const db = require('./db.service');
 
 class AnimalesService {
@@ -11,8 +10,6 @@ class AnimalesService {
     }
 
     async crear(data) {
-        console.log(data);
-
         const result = await db.query(
             `INSERT INTO animales (nombre, vacuna, adoptado, caracteristicas)
             VALUES ('${data.nombre}', ${data.vacuna}, '${data.adoptado}', '${data.caracteristicas}')`
@@ -26,9 +23,14 @@ class AnimalesService {
         return result;
     }
 
+    async consultarUno(id) {
+        const result = await db.query(`SELECT * FROM animales WHERE id_animal=${id}`);
+        return result;
+    }
+
     async actualizar(id, cambios) {
         const result= await db.query(
-            `UPDATE adopcion_animales.animales SET
+            `UPDATE animales SET
             nombre='${cambios.nombre}', vacuna=${cambios.vacuna}, adoptado='${cambios.adoptado}', caracteristicas='${cambios.caracteristicas}'
             WHERE id_animal = ${id};`
         );

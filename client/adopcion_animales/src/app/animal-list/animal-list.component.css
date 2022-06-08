@@ -1,0 +1,25 @@
+.mat-row {
+  color: rgb(50,50,50);
+  background-color: rgb(200,200,200);
+}
+
+.mat-row:nth-child(odd) {
+  background-color: rgb(180,180,180);
+}
+
+mat-table {
+  display: block;
+  margin: 10px auto;
+  width: 95%;
+  min-width: 350px;
+  border: 1px solid rgb(90,90,90);
+  box-shadow: 3px 3px 6px rgba(100, 100, 100, 0.75);
+}
+
+mat-header-row {
+  background-color: rgb(120, 120, 120);
+}
+
+button {
+  width: 100%
+}
