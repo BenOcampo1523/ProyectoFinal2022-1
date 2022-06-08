@@ -29,10 +29,10 @@ class AnimalesService {
     }
 
     async actualizar(id, cambios) {
-        const result= await db.query(
+        const result = await db.query(
             `UPDATE animales SET
-            nombre='${cambios.nombre}', vacuna=${cambios.vacuna}, adoptado='${cambios.adoptado}', caracteristicas='${cambios.caracteristicas}'
-            WHERE id_animal = ${id};`
+            nombre='${cambios.nombre}', vacuna='${cambios.vacuna}', adoptado='${cambios.adoptado}', caracteristicas='${cambios.caracteristicas}'
+            WHERE id_animal=${id};`
         );
         return result;
     }

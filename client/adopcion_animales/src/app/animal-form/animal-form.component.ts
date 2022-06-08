@@ -49,8 +49,6 @@ export class AnimalFormComponent implements OnInit {
   }
 
   guardarAnimal() {
-    delete this.animal.id_animal;
-
     this.servicio.addAnimal(this.animal).subscribe(
       res => {
         console.log(res);

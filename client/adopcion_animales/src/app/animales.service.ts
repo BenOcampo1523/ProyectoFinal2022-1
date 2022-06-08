@@ -38,12 +38,22 @@ export class AnimalesService {
     );
   }
 
+
   updateAnimal(id:number, animal:Animales): Observable<any>{
     const url = `${this.animalesURL}/${id}`;
     return this.http.put(url, animal, this.httpOptions).pipe(
       tap(_ => this.log(`updated hero id=${id}`)),
       catchError(this.handleError<any>('updateTaqueria')));
   }
+
+
+  /*
+  updateAnimal(animal:Animales): Observable<any>{
+    return this.http.put(this.animalesURL, animal, this.httpOptions).pipe(
+      tap(_ => this.log(`Actualizado los datos con ID=${animal.id_animal}`)),
+      catchError(this.handleError<any>('updateAnimal')));
+  }
+  */
 
   deleteAnimal(id:number):Observable<any>{
     const url = `${this.animalesURL}/${id}`;

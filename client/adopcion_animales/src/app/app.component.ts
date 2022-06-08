@@ -48,21 +48,6 @@ export class AppComponent implements OnInit {
     });
   }
 
-  addAnimales(): void {
-
-  }
-
-  updateAnimales(): void {
-
-  }
-
-  deleteAnimales(): void {
-
-  }
-
-
-
-
   ngOnInit(): void {
     this.getAnimales();
   }
