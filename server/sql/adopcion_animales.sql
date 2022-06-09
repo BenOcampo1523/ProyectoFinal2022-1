@@ -1,0 +1,10 @@
+CREATE SCHEMA IF NOT EXISTS adopcion_animales DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
+
+USE adopcion_animales;
+
+CREATE TABLE animales(
+id_animal INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+nombre VARCHAR(50) NOT NULL,
+vacuna BOOLEAN NOT NULL,
+adoptado VARCHAR(50) NOT NULL,
+caracteristicas LONGTEXT NOT NULL);
